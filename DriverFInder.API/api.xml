@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DriverFInder.API</name>
+    </assembly>
+    <members>
+        <member name="M:DriverFinder.UI.Controllers.AuthControl.AuthController.RegisterUser(DriverFinder.Core.DTO.RegisterDTO.UserRegisterRequest)">
+            <summary>
+            Registers a new user account using the specified registration details.
+            </summary>
+            <remarks>The registration request must provide valid user details. If the registration is
+            successful, the user is automatically signed in. Validation errors or registration failures will result in
+            an error response.</remarks>
+            <param name="Register">An object containing the user's registration information, including email, name, and phone number. Cannot be
+            null.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> that represents the result of the registration operation. Returns <see
+            cref="T:Microsoft.AspNetCore.Mvc.OkObjectResult"/> with the created user on success, or a problem response if registration fails.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.AuthControl.AuthController.Login(DriverFinder.Core.DTO.LoginDTO.LoginRequest)">
+            <summary>
+            Attempts to authenticate a user with the provided login credentials.
+            </summary>
+            <param name="Login">An object containing the user's email address and password used for authentication. Must not be null and
+            must contain valid values.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> that represents the result of the login attempt. Returns <see
+            cref="T:Microsoft.AspNetCore.Mvc.OkObjectResult"/> with the authenticated user if successful; otherwise, returns a problem response
+            describing the error.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.AuthControl.AuthController.SignOut">
+            <summary>
+            Signs out the currently authenticated user and ends their session.
+            </summary>
+            <returns>A result indicating that the sign-out operation completed successfully. Returns a 204 No Content response.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.DrivingSchoolControl.DrivingSchoolsController.GetDrivingSchools">
+            <summary>
+            Retrieves a list of all available driving schools.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult`1"/> containing a collection of <see cref="T:DriverFinder.Core.Domain.Entites.DrivingSchool"/> objects. Returns an
+            empty collection if no driving schools are found.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.DrivingSchoolControl.DrivingSchoolsController.GetDrivingSchool(System.Guid)">
+            <summary>
+            Retrieves the driving school with the specified unique identifier.
+            </summary>
+            <param name="id">The unique identifier of the driving school to retrieve.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult`1"/> containing the driving school if found; otherwise, a 404 Not
+            Found response.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.DrivingSchoolControl.DrivingSchoolsController.PutDrivingSchool(DriverFinder.Core.DTO.SchoolDTO.UpdateSchoolDTO.UpdateSchoolRequest,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Updates the details of an existing driving school with the specified identifier.
+            </summary>
+            <param name="id">The unique identifier of the driving school to update.</param>
+            <param name="UpdateSchool">An object containing the updated details of the driving school. The <see cref="P:DriverFinder.Core.Domain.Entites.DrivingSchool.SchoolID"/>
+            property must match the <paramref name="id"/> parameter.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> indicating the result of the operation. Returns <see cref="T:Microsoft.AspNetCore.Mvc.NoContentResult"/> if
+            the update is successful; <see cref="T:Microsoft.AspNetCore.Mvc.BadRequestResult"/> if the identifiers do not match; <see
+            cref="T:Microsoft.AspNetCore.Mvc.NotFoundObjectResult"/> if the driving school does not exist; or a problem result if the update fails or
+            the model state is invalid.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.DrivingSchoolControl.DrivingSchoolsController.ChangeFemaleInsStatus(System.Guid)">
+            <summary>
+            Creates a new driving school or updates an existing one based on the provided information.
+            </summary>
+            <remarks>If the model state is invalid, the method returns a problem response with validation
+            error messages. If the operation fails to add or update the driving school, a problem response is returned.
+            On success, an HTTP 200 OK response is returned with a confirmation message.</remarks>
+            <param name="SchoolDTO">The driving school entity to create or update. Must contain valid data; otherwise, the request will fail
+            validation.</param>
+            <returns>An ActionResult containing the created or updated DrivingSchool entity if successful; otherwise, a problem
+            response describing the error.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.DrivingSchoolControl.DrivingSchoolsController.DeleteDrivingSchool(System.Guid)">
+            <summary>
+            Applies a JSON Patch document to an existing driving school resource.
+            </summary>
+            <param name="id">The unique identifier of the driving school to update.</param>
+            <param name="PatchTo">The JSON Patch document containing the set of operations to apply to the driving school.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> that represents the result of the operation. Returns <see
+            cref="T:Microsoft.AspNetCore.Mvc.OkObjectResult"/> with the updated driving school if successful; otherwise, returns a problem response
+            if the school does not exist or if the patch results in validation errors.</returns>
+            <summary>
+            Deletes the driving school with the specified unique identifier.
+            </summary>
+            <param name="id">The unique identifier of the driving school to delete.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/> indicating the result of the delete operation. Returns <see
+            cref="T:Microsoft.AspNetCore.Mvc.NotFoundResult"/> if the driving school does not exist; <see cref="T:Microsoft.AspNetCore.Mvc.OkObjectResult"/> if the deletion
+            is successful; or <see cref="T:Microsoft.AspNetCore.Mvc.ObjectResult"/> with an error if the deletion fails.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.ProgramControl.DrivingProgramsController.GetDrivingPrograms">
+            <summary>
+            Retrieves all driving programs.
+            </summary>
+            <returns>An asynchronous operation that returns an <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult`1"/> containing a collection of <see
+            cref="T:DriverFinder.Core.Domain.Entites.Programs"/> objects. The collection is empty if no driving programs are found.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.ProgramControl.DrivingProgramsController.GetDrivingProgram(System.Guid)">
+            <summary>
+            Retrieves the driving program with the specified unique identifier.
+            </summary>
+            <param name="id">The unique identifier of the driving program to retrieve.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult`1"/> containing the driving program if found; otherwise, a 404 Not Found
+            response.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.ProgramTypesControl.ProgramTypesController.GetProgramTypes">
+            <summary>
+            Retrieves all available program types.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult`1"/> containing a collection of <see cref="T:DriverFinder.Core.Domain.Entites.ProgramTypes"/> objects. Returns an
+            empty collection if no program types are found.</returns>
+        </member>
+        <member name="M:DriverFinder.UI.Controllers.ProgramTypesControl.ProgramTypesController.GetProgramType(System.Guid)">
+            <summary>
+            Retrieves the program type with the specified unique identifier.
+            </summary>
+            <param name="id">The unique identifier of the program type to retrieve.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult`1"/> containing the program type if found; otherwise, a 404 Not Found
+            response.</returns>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+    </members>
+</doc>

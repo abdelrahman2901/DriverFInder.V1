@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DriverFInder.API/DriverFInder.API.csproj" />
+  <Project Path="DriverFinder.Core/DriverFinder.Core.csproj" />
+  <Project Path="DriverFinder.Infrastructure/DriverFinder.Infrastructure.csproj" />
+  <Project Path="DriverFinder.UnitTest/DriverFinder.UnitTest.csproj" />
+</Solution>
